@@ -10,7 +10,7 @@ Each skill is a self-contained procedure that helps your agent better understand
 
 | Skill | Description |
 |-------|-------------|
-| [clarity-check](clarity-check/) | Evaluates ambiguous technical requests before acting. When a prompt like "test this" or "fix the CI" could lead to meaningfully different work, this skill scores interpretation reliability and decides whether to proceed, state its assumption, or ask a clarifying question. |
+| [clarity-check](clarity-check/) | **Clarity Check** - Evaluates ambiguous technical requests before acting. When a prompt like "test this" or "fix the CI" could lead to meaningfully different work, this skill scores interpretation reliability and decides whether to proceed, state its assumption, or ask a clarifying question. |
 
 ## Structure
 
