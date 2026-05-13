@@ -1,0 +1,23 @@
+{
+  "skill_name": "plan-anchor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "User is developing an SMTP rate-limiting module in Go. After several conversation turns, the user has confirmed rate-limiting rules (hour<=10, day<=50, cooldown=60s) but one question remains open (whether Redis cluster needs Hash Tags). The user now says: '/anchor smtp-rate-limit'. Expected: skill triggers, creates docs/plan-smtp-rate-limit/plan_state.md containing the confirmed rules as CONFIRMED, the Redis Hash Tag question as PENDING BLOCKING, and known tech stack Go+Gin+Mongo.",
+      "expected_output": "plan_state.md is created with CONFIRMED decisions, PENDING BLOCKING question, and known facts",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "User and Claude have completed Step 1 (design interface) and Step 2 (implement rate limiting), and are now on Step 3 (write unit tests). During the work, the user confirmed a new constraint: 'single recipient max 3 emails per day'. The user says: 'update anchor'. Expected: skill updates the existing plan_state.md, marks Steps 1 and 2 as done, Step 3 as in-progress, and adds new CONFIRMED decision #4: single recipient <= 3/day.",
+      "expected_output": "plan_state.md is updated with correct task checklist and CONFIRMED list reflecting latest state",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Simulate a context compaction scenario. The user previously created a state file with /anchor smtp-rate-limit. The file contains 3 CONFIRMED decisions, 1 PENDING BLOCKING issue, and current progress at Step 2/5. Due to a long conversation, context was compacted and Claude no longer remembers the earlier details. The user says: '恢复上下文' (recover context). Expected: skill triggers, reads plan_state.md, and presents an explicit recovery summary to the user with progress, frozen decisions, and pending items.",
+      "expected_output": "Reads plan_state.md and sends a [Context Recovery] summary to the user with correct progress, decisions, and pending items",
+      "files": ["docs/plan-smtp-rate-limit/plan_state.md"]
+    }
+  ]
+}
